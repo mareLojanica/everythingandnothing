@@ -7,7 +7,7 @@ const passport = require("passport");
 const cors = require('cors')
 const app = express();
 const path = require('path');
-
+const fs = require("fs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -24,6 +24,14 @@ mongoose.connect(db, mongoConfig).then(() => {
 // app.use(cors)
 app.use(passport.initialize());
 app.use(passport.session())
+
+if(!fs.existsSync(`${process.mainModule.path}/public/`)){
+	try {
+		fs.mkdirSync(`${process.mainModule.path}/public/`)
+	} catch(e){
+		console.log(e)
+	}
+}
 app.use("/public", express.static(path.join("public/")));
 //passport config
 require("./config/passport.js")(passport);
