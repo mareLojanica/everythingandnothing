@@ -23,13 +23,13 @@ mongoose.connect(db, mongoConfig).then(() => {
 //passport middleware
 // app.use(cors)
 app.use(passport.initialize());
-app.use(passport.session())
+app.use(passport.session());
 
 if(!fs.existsSync(`${process.mainModule.path}/public/`)){
 	try {
-		fs.mkdirSync(`${process.mainModule.path}/public/`)
+		fs.mkdirSync(`${process.mainModule.path}/public/`);
 	} catch(e){
-		console.log(e)
+		console.log(e);
 	}
 }
 app.use("/public", express.static(path.join("public/")));

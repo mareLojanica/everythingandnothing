@@ -28,7 +28,6 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 router.post('/upload' , upload.array("image", 100),auth,  (req,res)=>{
-	console.log('tu smo')
 	const url = req.protocol + "://" + req.get("host");
 	const path = "/public";
 	const files = req.files;
@@ -58,9 +57,9 @@ router.get('/getimg/:id',auth, (req, res) => {
 		try {
 			const filePath = `${process.mainModule.path}/public/${picture.path.split('public')[1]}`;
 			if(fs.existsSync(filePath)) {
-				res.download(filePath, 'img.jpg')
+				res.download(filePath, 'img.jpg');
 			} else {
-				res.json({error : 'img does not exists on server'})
+				res.json({error : 'img does not exists on server'});
 			}
 		} catch (err) {
 			console.error(err);
