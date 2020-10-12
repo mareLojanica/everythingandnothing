@@ -1,0 +1,12 @@
+.progress-bar {
+  background: linear-gradient(to left, #f2709c, #ff9472);
+  box-shadow: 0 3px 3px -5px #f2709c, 0 2px 5px #f2709c;
+  border-radius: 20px;
+  margin: 15px 0;
+  height: 30px;
+}
+.progress-wrapper {
+  margin-top: 50px;
+  width: 100px;
+  height: 15px;
+}

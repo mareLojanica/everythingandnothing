@@ -1,0 +1,21 @@
+.logout-icon {
+  padding: 12px 24px;
+  font-size: var(--main-title-font-size);
+  font-weight: bold;
+  color: var(--primary-color);
+  background: var(--accent-color);
+  border: var(--default-accent-border);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--modal-items-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  width: fit-content;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

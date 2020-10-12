@@ -1,0 +1,45 @@
+.form h2 {
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  color: #34aff9;
+  margin-top: 2rem;
+  font-size: 24px;
+  font-weight: bold;
+}
+.btn-middle {
+  width: 100%;
+  text-align: center;
+}
+.forgot-pw {
+  color: #fff;
+  width: 100%;
+  margin-bottom: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.img {
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.7);
+}
+.login-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  padding: 40px 40px 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}

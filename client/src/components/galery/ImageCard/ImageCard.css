@@ -1,0 +1,21 @@
+.img-wrap {
+  overflow: hidden;
+  height: 0;
+  padding: 50% 0;
+  position: relative;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.img-wrap img {
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.img-wrap:hover {
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(1.1);
+}

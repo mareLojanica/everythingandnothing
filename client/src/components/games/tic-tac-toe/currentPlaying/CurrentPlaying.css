@@ -1,0 +1,8 @@
+.currently-playing {
+  padding: 3vmin;
+  color: var(--accent-color);
+  font-size: var(--main-title-font-size);
+  text-align: center;
+  margin: auto;
+  width: fit-content;
+}
