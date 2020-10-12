@@ -6,8 +6,8 @@ export const ModalMask = (props) => {
     show: props.boolShow,
   });
   return (
-    <div id="modal-overlay" className={modalClasses} onClick={props.handleClose ? props.handleClose() : undefined}>
-      {props.children}
-    </div>
+	<div id="modal-overlay" className={modalClasses} onClick={props.handleClose ? props.handleClose() : undefined}>
+		{props.children}
+	</div>
   );
 };
