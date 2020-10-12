@@ -8,6 +8,7 @@ const cors = require('cors')
 const app = express();
 const path = require('path');
 const fs = require("fs");
+const loggerMiddleware = require('./config/logger');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -33,6 +34,9 @@ if(!fs.existsSync(`${process.mainModule.path}/public/`)){
 	}
 }
 app.use("/public", express.static(path.join("public/")));
+
+//logger middlware
+app.use(loggerMiddleware);
 //passport config
 require("./config/passport.js")(passport);
 
