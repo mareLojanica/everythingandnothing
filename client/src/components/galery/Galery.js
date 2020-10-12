@@ -83,7 +83,6 @@ export const Galery = ()=>{
         }
     }
     const handleDelete = (index)=>{
-        console.log(images)
         setImages({
             ...images,
             upload : [...images.upload,...images.upload.slice(index + 1)],
