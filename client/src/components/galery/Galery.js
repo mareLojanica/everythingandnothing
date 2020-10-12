@@ -74,7 +74,7 @@ export const Galery = ()=>{
                     setImages({
                         ...images,
                         preview : [...images.preview ,...imagesArray],
-                        upload : [...images.preview , ...photosArray],
+                        upload : [...images.upload , ...photosArray],
 
                     });
                 }
