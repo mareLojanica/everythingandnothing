@@ -25,6 +25,7 @@ mongoose
 //passport middleware
 // app.use(cors)
 app.use(passport.initialize());
+app.use(passport.session())
 app.use("/public", express.static(path.join("public/")));
 //passport config
 require("./config/passport.js")(passport);

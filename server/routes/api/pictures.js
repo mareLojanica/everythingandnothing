@@ -4,6 +4,7 @@ const passport = require("passport");
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const auth = require('../../config/authMiddlware');
 const Picture = require('../../models/Picture');
 const MIME_TYPE_MAP = {
 						"image/png": "png",
@@ -26,7 +27,7 @@ const storage = multer.diskStorage({
 	},
 });
 const upload = multer({ storage: storage });
-router.post('/upload' , upload.array("image", 100),  (req,res)=>{
+router.post('/upload' , upload.array("image", 100),auth,  (req,res)=>{
 	console.log('tu smo')
 	const url = req.protocol + "://" + req.get("host");
 	const path = "/public";
@@ -43,13 +44,13 @@ router.post('/upload' , upload.array("image", 100),  (req,res)=>{
 		});
 	}
 });
-router.get('/getusergalery/:id'/* passport.authenticate('jwt', { session: false })*/, (req, res) => {
+router.get('/getusergalery/:id',auth, (req, res) => {
 	const id = req.params.id;
 	Picture.find({user : id}).sort({date: -1}).then(pictures =>{
 		res.json({pictures: pictures})
 	}).catch(err => console.log(err));
 })
-router.get('/getimg/:id'/* passport.authenticate('jwt', { session: false })*/, (req, res) => {
+router.get('/getimg/:id',auth, (req, res) => {
 	const id = req.params.id;
 	const url = req.protocol + "://" + req.get("host");
 	const path = "/public";
@@ -67,7 +68,7 @@ router.get('/getimg/:id'/* passport.authenticate('jwt', { session: false })*/, (
 		
 	}).catch(err => console.log(err));
 })
-router.post('/deleteimg/:id'/* passport.authenticate('jwt', { session: false })*/, async (req, res) => {
+router.post('/deleteimg/:id' ,auth, async (req, res) => {
 	const id = req.params.id;
 	const url = req.protocol + "://" + req.get("host");
 	const path = "/public";
@@ -84,7 +85,7 @@ router.post('/deleteimg/:id'/* passport.authenticate('jwt', { session: false })*
 		console.error(err);
 	}
 })
-router.get('/getothersgalery/:id'/* passport.authenticate('jwt', { session: false })*/, async(req, res) => {
+router.get('/getothersgalery/:id',auth, async(req, res) => {
 	const id = req.params.id;
 	let pictures = await Picture.find({user : { $ne : id}});
 	res.json({pictures: pictures});

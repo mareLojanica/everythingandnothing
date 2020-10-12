@@ -13,10 +13,13 @@ import { TicTacToe } from './components/games/tic-tac-toe/TicTacToe';
 import {Dashboard} from './components/dashboard/Dashboard';
 import { Register } from './components/register/Register';
 import { Galery } from './components/galery/Galery';
-
+import {setAuthToken} from './helpers/setAuthToken'
 function App() {
 	const token = localStorage.getItem("jwt-auth");
 	const decoded = token ? jwt_decode(token) : null;
+	if(token){
+		setAuthToken(token);
+	}
 	const [user, setUser] = useState(decoded);
 	const providerUser = useMemo(() => ({ user, setUser }), [user, setUser]);
 	return (

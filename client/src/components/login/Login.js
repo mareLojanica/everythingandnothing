@@ -9,6 +9,7 @@ import { validateLogin } from "../../validation/validateLogin";
 import {UserContext} from "../../customHooks/userContext";
 import { Link } from "react-router-dom";
 import img from "../../assets/img/bg1.png";
+import {setAuthToken} from "../../helpers/setAuthToken";
 export const Login = () => {
 	 document.documentElement.style.setProperty('--main-background-image', `url("${img}") no-repeat center center fixed`)
 	const { user, setUser } = useContext(UserContext);
@@ -22,6 +23,7 @@ export const Login = () => {
 				if (token) {
 					const newUser = {...user , id: res.data._id, email: res.data.email}
 					setUser(newUser);
+					setAuthToken(token)
 				} else {
 					console.log(res.data);
 				}
